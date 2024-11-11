@@ -1,12 +1,15 @@
 using Microsoft.VisualBasic.Devices;
 using MySql.Data.MySqlClient;
 using System.Xml.Linq;
+using Microsoft.CognitiveServices.Speech;
 
 namespace CloakInventorySystem
 {
     public partial class Form1 : Form
     {
-        
+        private const string AzureSpeechKey = "Fo0tIX3gYlmB8sV8BZOobYHy3Jm5ala7xYb5M278IO6akxEHbwjOJQQJ99AKACqBBLyXJ3w3AAAYACOGpxD6";
+        private const string AzureServiceRegion = "southeastasia";
+
         public Form1()
         {
             InitializeComponent();
@@ -146,12 +149,37 @@ namespace CloakInventorySystem
                 {
                     Console.WriteLine($"An error occurred: {ex.Message}");
                 }
+
+                textToSpeechAsync(StudentNameTextBox.Text);
             }
 
 
 
         }
 
+        async Task textToSpeechAsync(string textToSpeech)
+        {
+            string TTSText = StudentNameTextBox.Text;
+            var config = SpeechConfig.FromSubscription(AzureSpeechKey, AzureServiceRegion);
+
+            using (var synthesizer = new SpeechSynthesizer(config))
+            {
+                // Synthesize the text to speech
+                var result = await synthesizer.SpeakTextAsync(TTSText);
+
+                // Check if the synthesis was successful
+                if (result.Reason == ResultReason.SynthesizingAudioCompleted)
+                {
+                    MessageBox.Show("Speech synthesis completed.");
+                }
+                else if (result.Reason == ResultReason.Canceled)
+                {
+                    var cancellation = SpeechSynthesisCancellationDetails.FromResult(result);
+                    MessageBox.Show($"Error: {cancellation.ErrorDetails}");
+                }
+            }
+
+        }
 
     }
 }
