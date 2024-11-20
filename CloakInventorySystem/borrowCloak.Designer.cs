@@ -47,7 +47,10 @@
             graduateTextBox = new TextBox();
             ageTextBox = new TextBox();
             cloakSizeTextBox = new TextBox();
-            cloakSizeLabel = new Label();
+            guideConfirmLabel = new Label();
+            rfidGuideLabel = new Label();
+            confirmRFIDLabel = new Label();
+            cloakSize1Label = new Label();
             ((System.ComponentModel.ISupportInitialize)bottomBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sucLogoPictureBox).BeginInit();
             SuspendLayout();
@@ -181,6 +184,7 @@
             nameTextBox.Font = new Font("Arial", 36F);
             nameTextBox.Location = new Point(567, 184);
             nameTextBox.Name = "nameTextBox";
+            nameTextBox.ReadOnly = true;
             nameTextBox.Size = new Size(385, 63);
             nameTextBox.TabIndex = 24;
             // 
@@ -189,6 +193,7 @@
             studentIDTextBox.Font = new Font("Arial", 36F);
             studentIDTextBox.Location = new Point(567, 269);
             studentIDTextBox.Name = "studentIDTextBox";
+            studentIDTextBox.ReadOnly = true;
             studentIDTextBox.Size = new Size(385, 63);
             studentIDTextBox.TabIndex = 25;
             // 
@@ -197,6 +202,7 @@
             facultyTextBox.Font = new Font("Arial", 36F);
             facultyTextBox.Location = new Point(567, 465);
             facultyTextBox.Name = "facultyTextBox";
+            facultyTextBox.ReadOnly = true;
             facultyTextBox.Size = new Size(385, 63);
             facultyTextBox.TabIndex = 26;
             // 
@@ -205,6 +211,7 @@
             programTextBox.Font = new Font("Arial", 36F);
             programTextBox.Location = new Point(567, 569);
             programTextBox.Name = "programTextBox";
+            programTextBox.ReadOnly = true;
             programTextBox.Size = new Size(385, 63);
             programTextBox.TabIndex = 27;
             // 
@@ -213,6 +220,7 @@
             graduateTextBox.Font = new Font("Arial", 36F);
             graduateTextBox.Location = new Point(567, 664);
             graduateTextBox.Name = "graduateTextBox";
+            graduateTextBox.ReadOnly = true;
             graduateTextBox.Size = new Size(385, 63);
             graduateTextBox.TabIndex = 28;
             // 
@@ -221,6 +229,7 @@
             ageTextBox.Font = new Font("Arial", 36F);
             ageTextBox.Location = new Point(567, 372);
             ageTextBox.Name = "ageTextBox";
+            ageTextBox.ReadOnly = true;
             ageTextBox.Size = new Size(385, 63);
             ageTextBox.TabIndex = 29;
             // 
@@ -229,26 +238,69 @@
             cloakSizeTextBox.Font = new Font("Arial", 36F);
             cloakSizeTextBox.Location = new Point(1319, 187);
             cloakSizeTextBox.Name = "cloakSizeTextBox";
+            cloakSizeTextBox.ReadOnly = true;
             cloakSizeTextBox.Size = new Size(385, 63);
             cloakSizeTextBox.TabIndex = 31;
+            cloakSizeTextBox.Visible = false;
             // 
-            // cloakSizeLabel
+            // guideConfirmLabel
             // 
-            cloakSizeLabel.AutoSize = true;
-            cloakSizeLabel.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cloakSizeLabel.Location = new Point(1035, 187);
-            cloakSizeLabel.Name = "cloakSizeLabel";
-            cloakSizeLabel.Size = new Size(266, 55);
-            cloakSizeLabel.TabIndex = 30;
-            cloakSizeLabel.Text = "Cloak Size:";
+            guideConfirmLabel.AutoSize = true;
+            guideConfirmLabel.BorderStyle = BorderStyle.FixedSingle;
+            guideConfirmLabel.Font = new Font("Arial", 30F, FontStyle.Bold | FontStyle.Italic);
+            guideConfirmLabel.Location = new Point(373, 846);
+            guideConfirmLabel.Name = "guideConfirmLabel";
+            guideConfirmLabel.Size = new Size(1347, 48);
+            guideConfirmLabel.TabIndex = 32;
+            guideConfirmLabel.Text = "PLEASE CONFIRM THE INFORMATION BY SCANNING THE QR AGAIN";
+            guideConfirmLabel.Visible = false;
+            // 
+            // rfidGuideLabel
+            // 
+            rfidGuideLabel.AutoEllipsis = true;
+            rfidGuideLabel.AutoSize = true;
+            rfidGuideLabel.BorderStyle = BorderStyle.FixedSingle;
+            rfidGuideLabel.Font = new Font("Arial", 30F, FontStyle.Bold | FontStyle.Italic);
+            rfidGuideLabel.Location = new Point(502, 846);
+            rfidGuideLabel.Name = "rfidGuideLabel";
+            rfidGuideLabel.Size = new Size(1000, 48);
+            rfidGuideLabel.TabIndex = 33;
+            rfidGuideLabel.Text = "PLEASE PLACE THE CLOAK NEAR THE SCANNER";
+            rfidGuideLabel.Visible = false;
+            // 
+            // confirmRFIDLabel
+            // 
+            confirmRFIDLabel.AutoSize = true;
+            confirmRFIDLabel.BorderStyle = BorderStyle.FixedSingle;
+            confirmRFIDLabel.Font = new Font("Arial", 30F, FontStyle.Bold | FontStyle.Italic);
+            confirmRFIDLabel.Location = new Point(324, 846);
+            confirmRFIDLabel.Name = "confirmRFIDLabel";
+            confirmRFIDLabel.Size = new Size(1429, 48);
+            confirmRFIDLabel.TabIndex = 34;
+            confirmRFIDLabel.Text = "PLEASE CONFIRM THE INFORMATION BY SCANNING THE CLOAK AGAIN";
+            confirmRFIDLabel.Visible = false;
+            // 
+            // cloakSize1Label
+            // 
+            cloakSize1Label.AutoSize = true;
+            cloakSize1Label.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cloakSize1Label.Location = new Point(1027, 192);
+            cloakSize1Label.Name = "cloakSize1Label";
+            cloakSize1Label.Size = new Size(266, 55);
+            cloakSize1Label.TabIndex = 35;
+            cloakSize1Label.Text = "Cloak Size:";
+            cloakSize1Label.Visible = false;
             // 
             // borrowCloak
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(cloakSize1Label);
+            Controls.Add(confirmRFIDLabel);
+            Controls.Add(rfidGuideLabel);
+            Controls.Add(guideConfirmLabel);
             Controls.Add(cloakSizeTextBox);
-            Controls.Add(cloakSizeLabel);
             Controls.Add(ageTextBox);
             Controls.Add(graduateTextBox);
             Controls.Add(programTextBox);
@@ -298,5 +350,9 @@
         private TextBox ageTextBox;
         private TextBox cloakSizeTextBox;
         private Label cloakSizeLabel;
+        private Label guideConfirmLabel;
+        private Label rfidGuideLabel;
+        private Label confirmRFIDLabel;
+        private Label cloakSize1Label;
     }
 }
