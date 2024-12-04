@@ -32,5 +32,11 @@ namespace CloakInventorySystem
             this.Hide();
         }
 
+        private void gmsButton_Click(object sender, EventArgs e)
+        {
+            gmsMenu gmsMenu = new gmsMenu();
+            gmsMenu.Show();
+            this.Hide();
+        }
     }
 }

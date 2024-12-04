@@ -1,6 +1,6 @@
 ﻿namespace CloakInventorySystem
 {
-    partial class borrowCloak
+    partial class MPHCheckIn
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,6 @@
             bottomBar = new PictureBox();
             menuLabel = new Label();
             sucLogoPictureBox = new PictureBox();
-            guideLabel = new Label();
             UserInputTextBox = new TextBox();
             nameLabel = new Label();
             ageLabel = new Label();
@@ -47,16 +46,14 @@
             graduateTextBox = new TextBox();
             ageTextBox = new TextBox();
             cloakSizeTextBox = new TextBox();
-            guideConfirmLabel = new Label();
             rfidGuideLabel = new Label();
             confirmRFIDLabel = new Label();
             cloakSize1Label = new Label();
-            QRGif = new PictureBox();
+            label1 = new Label();
             rfidGif = new PictureBox();
             returnPictureBox = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)bottomBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sucLogoPictureBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)QRGif).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rfidGif).BeginInit();
             ((System.ComponentModel.ISupportInitialize)returnPictureBox).BeginInit();
             SuspendLayout();
@@ -86,13 +83,10 @@
             // 
             // menuLabel
             // 
-            menuLabel.AutoSize = true;
-            menuLabel.Font = new Font("Arial", 51.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            menuLabel.Location = new Point(799, 44);
+            menuLabel.Location = new Point(0, 0);
             menuLabel.Name = "menuLabel";
-            menuLabel.Size = new Size(482, 79);
-            menuLabel.TabIndex = 13;
-            menuLabel.Text = "Borrow Claok";
+            menuLabel.Size = new Size(100, 23);
+            menuLabel.TabIndex = 36;
             // 
             // sucLogoPictureBox
             // 
@@ -105,17 +99,6 @@
             sucLogoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             sucLogoPictureBox.TabIndex = 12;
             sucLogoPictureBox.TabStop = false;
-            // 
-            // guideLabel
-            // 
-            guideLabel.AutoSize = true;
-            guideLabel.BorderStyle = BorderStyle.FixedSingle;
-            guideLabel.Font = new Font("Arial", 50F, FontStyle.Bold | FontStyle.Italic);
-            guideLabel.Location = new Point(410, 833);
-            guideLabel.Name = "guideLabel";
-            guideLabel.Size = new Size(1169, 78);
-            guideLabel.TabIndex = 16;
-            guideLabel.Text = "PLEASE SCAN THE INVITATION QR";
             // 
             // UserInputTextBox
             // 
@@ -249,18 +232,6 @@
             cloakSizeTextBox.TabIndex = 31;
             cloakSizeTextBox.Visible = false;
             // 
-            // guideConfirmLabel
-            // 
-            guideConfirmLabel.AutoSize = true;
-            guideConfirmLabel.BorderStyle = BorderStyle.FixedSingle;
-            guideConfirmLabel.Font = new Font("Arial", 30F, FontStyle.Bold | FontStyle.Italic);
-            guideConfirmLabel.Location = new Point(373, 846);
-            guideConfirmLabel.Name = "guideConfirmLabel";
-            guideConfirmLabel.Size = new Size(1347, 48);
-            guideConfirmLabel.TabIndex = 32;
-            guideConfirmLabel.Text = "PLEASE CONFIRM THE INFORMATION BY SCANNING THE QR AGAIN";
-            guideConfirmLabel.Visible = false;
-            // 
             // rfidGuideLabel
             // 
             rfidGuideLabel.AutoEllipsis = true;
@@ -279,7 +250,7 @@
             confirmRFIDLabel.AutoSize = true;
             confirmRFIDLabel.BorderStyle = BorderStyle.FixedSingle;
             confirmRFIDLabel.Font = new Font("Arial", 30F, FontStyle.Bold | FontStyle.Italic);
-            confirmRFIDLabel.Location = new Point(324, 846);
+            confirmRFIDLabel.Location = new Point(333, 846);
             confirmRFIDLabel.Name = "confirmRFIDLabel";
             confirmRFIDLabel.Size = new Size(1429, 48);
             confirmRFIDLabel.TabIndex = 34;
@@ -297,49 +268,48 @@
             cloakSize1Label.Text = "Cloak Size:";
             cloakSize1Label.Visible = false;
             // 
-            // QRGif
+            // label1
             // 
-            QRGif.Image = Properties.Resources.qr;
-            QRGif.Location = new Point(744, 187);
-            QRGif.Name = "QRGif";
-            QRGif.Size = new Size(600, 600);
-            QRGif.SizeMode = PictureBoxSizeMode.StretchImage;
-            QRGif.TabIndex = 36;
-            QRGif.TabStop = false;
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial", 51.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(763, 44);
+            label1.Name = "label1";
+            label1.Size = new Size(489, 79);
+            label1.TabIndex = 37;
+            label1.Text = "MPH Check In";
             // 
             // rfidGif
             // 
             rfidGif.Image = Properties.Resources.rfid;
-            rfidGif.Location = new Point(744, 184);
+            rfidGif.Location = new Point(652, 220);
             rfidGif.Name = "rfidGif";
             rfidGif.Size = new Size(600, 600);
             rfidGif.SizeMode = PictureBoxSizeMode.StretchImage;
-            rfidGif.TabIndex = 37;
+            rfidGif.TabIndex = 38;
             rfidGif.TabStop = false;
             // 
             // returnPictureBox
             // 
             returnPictureBox.Image = Properties.Resources._return;
-            returnPictureBox.Location = new Point(1759, 44);
+            returnPictureBox.Location = new Point(1738, 44);
             returnPictureBox.Name = "returnPictureBox";
             returnPictureBox.Size = new Size(92, 79);
             returnPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            returnPictureBox.TabIndex = 40;
+            returnPictureBox.TabIndex = 41;
             returnPictureBox.TabStop = false;
             returnPictureBox.Click += returnPictureBox_Click;
             // 
-            // borrowCloak
+            // MPHCheckIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
             Controls.Add(returnPictureBox);
             Controls.Add(rfidGif);
-            Controls.Add(QRGif);
+            Controls.Add(label1);
             Controls.Add(cloakSize1Label);
             Controls.Add(confirmRFIDLabel);
             Controls.Add(rfidGuideLabel);
-            Controls.Add(guideConfirmLabel);
             Controls.Add(cloakSizeTextBox);
             Controls.Add(ageTextBox);
             Controls.Add(graduateTextBox);
@@ -354,17 +324,15 @@
             Controls.Add(ageLabel);
             Controls.Add(nameLabel);
             Controls.Add(UserInputTextBox);
-            Controls.Add(guideLabel);
             Controls.Add(sloganLabel);
             Controls.Add(bottomBar);
             Controls.Add(menuLabel);
             Controls.Add(sucLogoPictureBox);
-            Name = "borrowCloak";
+            Name = "MPHCheckIn";
             Text = "borrowScanQR";
             Load += borrowCloak_Load;
             ((System.ComponentModel.ISupportInitialize)bottomBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)sucLogoPictureBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)QRGif).EndInit();
             ((System.ComponentModel.ISupportInitialize)rfidGif).EndInit();
             ((System.ComponentModel.ISupportInitialize)returnPictureBox).EndInit();
             ResumeLayout(false);
@@ -377,7 +345,6 @@
         private PictureBox bottomBar;
         private Label menuLabel;
         private PictureBox sucLogoPictureBox;
-        private Label guideLabel;
         private TextBox UserInputTextBox;
         private Label nameLabel;
         private Label ageLabel;
@@ -393,11 +360,10 @@
         private TextBox ageTextBox;
         private TextBox cloakSizeTextBox;
         private Label cloakSizeLabel;
-        private Label guideConfirmLabel;
         private Label rfidGuideLabel;
         private Label confirmRFIDLabel;
         private Label cloakSize1Label;
-        private PictureBox QRGif;
+        private Label label1;
         private PictureBox rfidGif;
         private PictureBox returnPictureBox;
     }

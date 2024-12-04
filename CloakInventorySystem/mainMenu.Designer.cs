@@ -84,6 +84,7 @@
             gmsButton.TabIndex = 3;
             gmsButton.Text = "  Graduation Management ";
             gmsButton.UseVisualStyleBackColor = false;
+            gmsButton.Click += gmsButton_Click;
             // 
             // bottomBar
             // 

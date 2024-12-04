@@ -112,6 +112,7 @@
             returnButton.TabIndex = 12;
             returnButton.Text = "Return Cloak";
             returnButton.UseVisualStyleBackColor = false;
+            returnButton.Click += returnButton_Click;
             // 
             // studentDLVButton
             // 

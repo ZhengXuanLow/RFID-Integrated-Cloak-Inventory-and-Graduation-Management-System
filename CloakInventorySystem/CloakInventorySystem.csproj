@@ -15,6 +15,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="gmsMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MPHCheckIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="sucCheckIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="returnCloak.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

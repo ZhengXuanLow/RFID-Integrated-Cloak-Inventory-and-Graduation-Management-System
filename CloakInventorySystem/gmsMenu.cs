@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CloakInventorySystem
 {
-    public partial class cisMenu : Form
+    public partial class gmsMenu : Form
     {
-        public cisMenu()
+        public gmsMenu()
         {
             InitializeComponent();
         }
 
-        private void cisMenu_Load(object sender, EventArgs e)
+        private void gmsMenu_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
@@ -34,18 +34,25 @@ namespace CloakInventorySystem
             this.Close();
         }
 
-        private void borrowButton_Click(object sender, EventArgs e)
+        private void campusCIButton_Click(object sender, EventArgs e)
         {
-            borrowCloak borrowCloak = new borrowCloak();
-            borrowCloak.Show();
+            sucCheckIn sucCheckIn = new sucCheckIn();
+            sucCheckIn.Show();
             this.Hide();
         }
 
-        private void returnButton_Click(object sender, EventArgs e)
+        private void MPHCIbutton_Click(object sender, EventArgs e)
         {
-            returnCloak returnCloak = new returnCloak();
-            returnCloak.Show();
+            MPHCheckIn MPHCheckIn = new MPHCheckIn();
+            MPHCheckIn.Show();
             this.Hide();
+        }
+
+        private void returnPictureBox_Click_1(object sender, EventArgs e)
+        {
+            mainMenu mainMenu = new mainMenu();
+            mainMenu.Show();
+            this.Close();
         }
     }
 }
