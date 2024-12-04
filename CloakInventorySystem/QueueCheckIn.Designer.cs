@@ -1,6 +1,6 @@
 ﻿namespace CloakInventorySystem
 {
-    partial class sucCheckIn
+    partial class QueueCheckIn
     {
         /// <summary>
         /// Required designer variable.
@@ -272,11 +272,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 51.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(643, 44);
+            label1.Location = new Point(670, 44);
             label1.Name = "label1";
-            label1.Size = new Size(609, 79);
+            label1.Size = new Size(552, 79);
             label1.TabIndex = 37;
-            label1.Text = "Campus Check In";
+            label1.Text = "Queue Check In";
             // 
             // rfidGif
             // 
@@ -291,15 +291,15 @@
             // returnPictureBox
             // 
             returnPictureBox.Image = Properties.Resources._return;
-            returnPictureBox.Location = new Point(1740, 44);
+            returnPictureBox.Location = new Point(1738, 44);
             returnPictureBox.Name = "returnPictureBox";
             returnPictureBox.Size = new Size(92, 79);
             returnPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            returnPictureBox.TabIndex = 40;
+            returnPictureBox.TabIndex = 41;
             returnPictureBox.TabStop = false;
             returnPictureBox.Click += returnPictureBox_Click;
             // 
-            // sucCheckIn
+            // QueueCheckIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -328,7 +328,7 @@
             Controls.Add(bottomBar);
             Controls.Add(menuLabel);
             Controls.Add(sucLogoPictureBox);
-            Name = "sucCheckIn";
+            Name = "QueueCheckIn";
             Text = "borrowScanQR";
             Load += borrowCloak_Load;
             ((System.ComponentModel.ISupportInitialize)bottomBar).EndInit();

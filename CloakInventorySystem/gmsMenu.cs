@@ -54,5 +54,33 @@ namespace CloakInventorySystem
             mainMenu.Show();
             this.Close();
         }
+
+        private void queueButton_Click(object sender, EventArgs e)
+        {
+            QueueCheckIn QueueCheckIn = new QueueCheckIn();
+            QueueCheckIn.Show();
+            this.Close();
+        }
+
+        private void stageCIButton_Click(object sender, EventArgs e)
+        {
+            StageCheckIn StageCheckIn = new StageCheckIn();
+            StageCheckIn.Show();
+            this.Close();
+        }
+
+        private void stageCOButton_Click(object sender, EventArgs e)
+        {
+            StageCheckOut StageCheckOut = new StageCheckOut();
+            StageCheckOut.Show();
+            this.Close();
+        }
+
+        private void campusCOButton_Click(object sender, EventArgs e)
+        {
+            sucCheckOut sucCheckOut = new sucCheckOut();
+            sucCheckOut.Show();
+            this.Hide();
+        }
     }
 }

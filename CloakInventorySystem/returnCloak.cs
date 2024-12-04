@@ -328,7 +328,7 @@ namespace CloakInventorySystem
         void setStatus(string studentID)
         {
             string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            string query = "UPDATE student SET currentStatusID = '2' WHERE studentID = @studentID";
+            string query = "UPDATE student SET currentStatusID = '9' WHERE studentID = @studentID";
 
             try
             {

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CloakInventorySystem
 {
-    public partial class borrowCloak : Form
+    public partial class StageCheckOut : Form
     {
         bool QRMode = true;
         bool rfidMode = false;
@@ -28,36 +28,15 @@ namespace CloakInventorySystem
         string currentStudentGraduation = string.Empty;
         string currentSize = string.Empty;
 
-        public borrowCloak()
+        public StageCheckOut()
         {
             InitializeComponent();
         }
 
-        void showQRRelatedTextboxHideGIF()
-        {
-            nameLabel.Visible = true;
-            studentIDLabel.Visible = true;
-            ageLabel.Visible = true;
-            facultyLabel.Visible = true;
-            programLabel.Visible = true;
-            graduateLabel.Visible = true;
-            cloakSize1Label.Visible = true;
-            cloakSizeTextBox.Visible = false;
-            QRGif.Visible = false;
-            rfidGif.Visible = false;
-
-            nameTextBox.Visible = true;
-            studentIDTextBox.Visible = true;
-            ageTextBox.Visible = true;
-            facultyTextBox.Visible = true;
-            programTextBox.Visible = true;
-            graduateTextBox.Visible = true;
-            cloakSizeTextBox.Visible = false;
-
-        }
 
         void showRFIDRelatedTextboxHideGIF()
         {
+            rfidGif.Visible = false;
             nameLabel.Visible = true;
             studentIDLabel.Visible = true;
             ageLabel.Visible = true;
@@ -65,8 +44,6 @@ namespace CloakInventorySystem
             programLabel.Visible = true;
             graduateLabel.Visible = true;
             cloakSize1Label.Visible = true;
-
-
 
             nameTextBox.Visible = true;
             studentIDTextBox.Visible = true;
@@ -75,29 +52,9 @@ namespace CloakInventorySystem
             programTextBox.Visible = true;
             graduateTextBox.Visible = true;
             cloakSizeTextBox.Visible = true;
-            rfidGif.Visible = false;
-            QRGif.Visible = false;
         }
 
-        void hideQRRelatedTextboxShowGIF()
-        {
-            nameLabel.Visible = false;
-            studentIDLabel.Visible = false;
-            ageLabel.Visible = false;
-            facultyLabel.Visible = false;
-            programLabel.Visible = false;
-            graduateLabel.Visible = false;
-            cloakSize1Label.Visible = false;
-            nameTextBox.Visible = false;
-            studentIDTextBox.Visible = false;
-            ageTextBox.Visible = false;
-            facultyTextBox.Visible = false;
-            programTextBox.Visible = false;
-            graduateTextBox.Visible = false;
-            cloakSizeTextBox.Visible = false;
-            QRGif.Visible = true;
-            rfidGif.Visible = true;
-        }
+
 
         void hideRFIDRelatedTextboxShowGIF()
         {
@@ -109,8 +66,7 @@ namespace CloakInventorySystem
             graduateLabel.Visible = false;
             cloakSize1Label.Visible = false;
             cloakSizeTextBox.Visible = false;
-            rfidGif.Visible = true;
-            QRGif.Visible = false;
+            rfidGuideLabel.Visible = true;
 
             nameTextBox.Visible = false;
             studentIDTextBox.Visible = false;
@@ -131,6 +87,7 @@ namespace CloakInventorySystem
             programTextBox.Text = "";
             graduateTextBox.Text = "";
             cloakSize1Label.Text = "";
+
         }
 
         private void borrowCloak_Load(object sender, EventArgs e)
@@ -143,69 +100,26 @@ namespace CloakInventorySystem
             bottomBar.BackColor = ColorTranslator.FromHtml("#1E427E");
             sloganLabel.BackColor = ColorTranslator.FromHtml("#1E427E");
 
-            hideQRRelatedTextboxShowGIF();
-            rfidGif.Visible = false;
+            hideRFIDRelatedTextboxShowGIF();
+            rfidGif.Visible = true;
 
         }
 
         private void UserInputTextBox_TextChanged(object sender, EventArgs e)
         {
 
-            if (QRMode == true && rfidMode == false)
-            {
-                if (currentQRCode == string.Empty)
-                {
-                    if (UserInputTextBox.Text.Length > 5)
-                    {
-
-                        getStudentInfo(UserInputTextBox.Text);
-                        showQRRelatedTextboxHideGIF();
-                        currentQRCode = UserInputTextBox.Text;
-                        UserInputTextBox.Text = string.Empty;
-                        if (!confirmInfoA)
-                        {
-                            guideLabel.Visible = false;
-                            guideConfirmLabel.Visible = true;
-                        }
-
-                    }
-
-
-                }
-                else if (currentQRCode != string.Empty)
-                {
-                    if (UserInputTextBox.Text.Length > 5)
-                    {
-                        if (currentQRCode == UserInputTextBox.Text)
-                        {
-                            QRMode = false;
-                            rfidMode = true;
-                            guideConfirmLabel.Visible = false;
-                            rfidGuideLabel.Visible = true;
-                            UserInputTextBox.Text = string.Empty;
-                            hideRFIDRelatedTextboxShowGIF();
-                        }
-                    }
-                }
-
-            }
-
-            else
-
-                if (QRMode == false && rfidMode == true)
             {
                 if (currentRFIDCode == string.Empty)
                 {
                     if (UserInputTextBox.Text.Length > 9)
                     {
-                        getCloakInfo(UserInputTextBox.Text);
+                        getStudentInfo(UserInputTextBox.Text);
+                        getCloakSize(UserInputTextBox.Text);
                         currentRFIDCode = UserInputTextBox.Text;
                         showRFIDRelatedTextboxHideGIF();
 
                         if (!confirmInfoB)
                         {
-                            guideLabel.Visible = false;
-                            guideConfirmLabel.Visible = false;
                             rfidGuideLabel.Visible = false;
                             showRFIDRelatedTextboxHideGIF();
                             confirmRFIDLabel.Visible = true;
@@ -226,15 +140,13 @@ namespace CloakInventorySystem
                         {
                             QRMode = false;
                             rfidMode = false;
-                            guideConfirmLabel.Visible = false;
-                            rfidGuideLabel.Visible = false;
+
+                            rfidGuideLabel.Visible = true;
                             confirmRFIDLabel.Visible = false;
                             UserInputTextBox.Text = string.Empty;
-                            setStudentIDonCloak(currentRFIDCode, currentStudentID);
                             setStatus(currentStudentID);
-                            hideQRRelatedTextboxShowGIF();
+                            hideRFIDRelatedTextboxShowGIF();
                             resetAll();
-                            guideLabel.Visible = true;
                         }
                     }
                 }
@@ -242,7 +154,7 @@ namespace CloakInventorySystem
 
         }
 
-        void getStudentInfo(string qrCodeContent)
+        void getStudentInfo(string RFIDContent)
         {
             string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
@@ -267,13 +179,16 @@ namespace CloakInventorySystem
                     student s
                     JOIN 
                     course c ON s.courseID = c.courseID
-                    JOIN department d ON c.departmentID = d.departmentID
+                    JOIN 
+                    department d ON c.departmentID = d.departmentID
+                    JOIN
+                    cloak k ON s.studentID = k.studentID
                     WHERE 
-                    s.invitationCode = @QRCODE;";
+                    k.rfidID = @RFIDContent";
 
 
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@QRCODE", qrCodeContent);
+                    command.Parameters.AddWithValue("@RFIDContent", RFIDContent);
                     SqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
@@ -314,7 +229,7 @@ namespace CloakInventorySystem
 
         }
 
-        void getCloakInfo(string RFIDContent)
+        void getCloakSize(string RFIDContent)
         {
             string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
@@ -357,39 +272,7 @@ namespace CloakInventorySystem
 
         }
 
-        void setStudentIDonCloak(string RFIDID, string studentID)
-        {
 
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            string query = "UPDATE cloak SET studentID = @studentID WHERE rfidID = @RFIDID";
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@studentID", studentID);
-                        command.Parameters.AddWithValue("@RFIDID", RFIDID);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-
-                        }
-                        else
-                        {
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
 
         void resetAll()
         {
@@ -407,15 +290,13 @@ namespace CloakInventorySystem
             currentStudentProgram = string.Empty;
             currentStudentGraduation = string.Empty;
             currentSize = string.Empty;
-
-            rfidGif.Visible = false;
-            QRGif.Visible = true;
+            rfidGif.Visible = true;
         }
 
         void setStatus(string studentID)
         {
             string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            string query = "UPDATE student SET currentStatusID = '2' WHERE studentID = @studentID";
+            string query = "UPDATE student SET currentStatusID = '7' WHERE studentID = @studentID";
 
             try
             {
@@ -445,8 +326,8 @@ namespace CloakInventorySystem
 
         private void returnPictureBox_Click(object sender, EventArgs e)
         {
-            cisMenu cisMenu = new cisMenu();
-            cisMenu.Show();
+            gmsMenu gmsMenu = new gmsMenu();
+            gmsMenu.Show();
             this.Close();
         }
     }

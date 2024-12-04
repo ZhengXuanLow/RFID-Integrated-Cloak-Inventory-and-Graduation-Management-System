@@ -19,9 +19,9 @@ namespace CloakInventorySystem
 
         private void cisMenu_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
+            //this.TopMost = true;
 
             bottomBar.BackColor = ColorTranslator.FromHtml("#1E427E");
             sloganLabel.BackColor = ColorTranslator.FromHtml("#1E427E");
@@ -45,6 +45,13 @@ namespace CloakInventorySystem
         {
             returnCloak returnCloak = new returnCloak();
             returnCloak.Show();
+            this.Hide();
+        }
+
+        private void cloakDLVButton_Click(object sender, EventArgs e)
+        {
+            dataListView dataListView = new dataListView();
+            dataListView.Show();
             this.Hide();
         }
     }

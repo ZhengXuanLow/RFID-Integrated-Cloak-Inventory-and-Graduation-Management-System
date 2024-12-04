@@ -18,6 +18,21 @@
     <Compile Update="gmsMenu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="dataListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="sucCheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StageCheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StageCheckIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="QueueCheckIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MPHCheckIn.cs">
       <SubType>Form</SubType>
     </Compile>

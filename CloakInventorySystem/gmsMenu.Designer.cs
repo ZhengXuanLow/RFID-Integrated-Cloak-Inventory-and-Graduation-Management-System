@@ -140,6 +140,7 @@
             queueButton.TabIndex = 18;
             queueButton.Text = "Queue Check In";
             queueButton.UseVisualStyleBackColor = false;
+            queueButton.Click += queueButton_Click;
             // 
             // stageCIButton
             // 
@@ -153,6 +154,7 @@
             stageCIButton.TabIndex = 19;
             stageCIButton.Text = "Stage Check In ";
             stageCIButton.UseVisualStyleBackColor = false;
+            stageCIButton.Click += stageCIButton_Click;
             // 
             // campusCOButton
             // 
@@ -166,6 +168,7 @@
             campusCOButton.TabIndex = 20;
             campusCOButton.Text = "Campus Check Out";
             campusCOButton.UseVisualStyleBackColor = false;
+            campusCOButton.Click += campusCOButton_Click;
             // 
             // ceremonyScreenButton
             // 
@@ -192,6 +195,7 @@
             stageCOButton.TabIndex = 22;
             stageCOButton.Text = "Stage Check Out";
             stageCOButton.UseVisualStyleBackColor = false;
+            stageCOButton.Click += stageCOButton_Click;
             // 
             // gmsMenu
             // 

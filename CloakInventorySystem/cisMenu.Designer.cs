@@ -34,7 +34,6 @@
             menuLabel = new Label();
             sucLogoPictureBox = new PictureBox();
             returnButton = new Button();
-            studentDLVButton = new Button();
             cloakDLVButton = new Button();
             dashboardButton = new Button();
             returnPictureBox = new PictureBox();
@@ -114,38 +113,27 @@
             returnButton.UseVisualStyleBackColor = false;
             returnButton.Click += returnButton_Click;
             // 
-            // studentDLVButton
-            // 
-            studentDLVButton.BackColor = SystemColors.ButtonShadow;
-            studentDLVButton.Font = new Font("Arial", 32F, FontStyle.Bold);
-            studentDLVButton.ForeColor = SystemColors.Control;
-            studentDLVButton.Location = new Point(220, 630);
-            studentDLVButton.Name = "studentDLVButton";
-            studentDLVButton.Size = new Size(462, 226);
-            studentDLVButton.TabIndex = 13;
-            studentDLVButton.Text = "Student Data List View";
-            studentDLVButton.UseVisualStyleBackColor = false;
-            // 
             // cloakDLVButton
             // 
             cloakDLVButton.BackColor = SystemColors.ButtonShadow;
             cloakDLVButton.Font = new Font("Arial", 32F, FontStyle.Bold);
             cloakDLVButton.ForeColor = SystemColors.Control;
-            cloakDLVButton.Location = new Point(713, 630);
+            cloakDLVButton.Location = new Point(359, 630);
             cloakDLVButton.Name = "cloakDLVButton";
-            cloakDLVButton.Size = new Size(462, 226);
+            cloakDLVButton.Size = new Size(570, 226);
             cloakDLVButton.TabIndex = 14;
-            cloakDLVButton.Text = "Cloak Data List View";
+            cloakDLVButton.Text = "Data List View";
             cloakDLVButton.UseVisualStyleBackColor = false;
+            cloakDLVButton.Click += cloakDLVButton_Click;
             // 
             // dashboardButton
             // 
             dashboardButton.BackColor = SystemColors.ButtonShadow;
             dashboardButton.Font = new Font("Arial", 32F, FontStyle.Bold);
             dashboardButton.ForeColor = SystemColors.Control;
-            dashboardButton.Location = new Point(1207, 630);
+            dashboardButton.Location = new Point(973, 630);
             dashboardButton.Name = "dashboardButton";
-            dashboardButton.Size = new Size(462, 226);
+            dashboardButton.Size = new Size(570, 226);
             dashboardButton.TabIndex = 15;
             dashboardButton.Text = "Dashboard";
             dashboardButton.UseVisualStyleBackColor = false;
@@ -169,7 +157,6 @@
             Controls.Add(returnPictureBox);
             Controls.Add(dashboardButton);
             Controls.Add(cloakDLVButton);
-            Controls.Add(studentDLVButton);
             Controls.Add(returnButton);
             Controls.Add(sloganLabel);
             Controls.Add(bottomBar);
@@ -194,7 +181,6 @@
         private Label menuLabel;
         private PictureBox sucLogoPictureBox;
         private Button returnButton;
-        private Button studentDLVButton;
         private Button cloakDLVButton;
         private Button dashboardButton;
         private PictureBox returnPictureBox;
