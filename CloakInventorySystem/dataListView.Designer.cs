@@ -40,12 +40,22 @@
             rfidTextBox = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            currentStatusTextBox = new TextBox();
-            comboBox1 = new ComboBox();
+            statusComboBox = new ComboBox();
+            label4 = new Label();
+            updateButton = new Button();
+            speechrichTextBox = new RichTextBox();
+            searchStudentIDTextBox = new TextBox();
+            searchRFIDTextBox = new TextBox();
+            menuStrip1 = new MenuStrip();
+            refreshF5ToolStripMenuItem = new ToolStripMenuItem();
+            importToolStripMenuItem = new ToolStripMenuItem();
+            importToolStripMenuItem1 = new ToolStripMenuItem();
+            deleteAllToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)sucLogoPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bottomBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)returnPictureBox).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // sucLogoPictureBox
@@ -83,9 +93,9 @@
             // dataGridView
             // 
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(98, 144);
+            dataGridView.Location = new Point(98, 198);
             dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(1703, 515);
+            dataGridView.Size = new Size(1703, 446);
             dataGridView.TabIndex = 6;
             // 
             // returnPictureBox
@@ -118,6 +128,7 @@
             nameTextBox.ForeColor = SystemColors.Control;
             nameTextBox.Location = new Point(429, 735);
             nameTextBox.Name = "nameTextBox";
+            nameTextBox.ReadOnly = true;
             nameTextBox.Size = new Size(296, 53);
             nameTextBox.TabIndex = 44;
             // 
@@ -148,7 +159,7 @@
             rfidTextBox.BackColor = Color.FromArgb(30, 66, 126);
             rfidTextBox.Font = new Font("Arial", 30F);
             rfidTextBox.ForeColor = SystemColors.Control;
-            rfidTextBox.Location = new Point(1105, 740);
+            rfidTextBox.Location = new Point(1035, 738);
             rfidTextBox.Name = "rfidTextBox";
             rfidTextBox.Size = new Size(278, 53);
             rfidTextBox.TabIndex = 48;
@@ -159,7 +170,7 @@
             label2.BackColor = Color.FromArgb(30, 66, 126);
             label2.Font = new Font("Arial", 30F);
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(836, 743);
+            label2.Location = new Point(766, 741);
             label2.Name = "label2";
             label2.Size = new Size(125, 45);
             label2.TabIndex = 47;
@@ -171,33 +182,114 @@
             label3.BackColor = Color.FromArgb(30, 66, 126);
             label3.Font = new Font("Arial", 30F);
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(836, 843);
+            label3.Location = new Point(766, 841);
             label3.Name = "label3";
             label3.Size = new Size(263, 45);
             label3.TabIndex = 49;
             label3.Text = "currentStatus:";
             // 
-            // currentStatusTextBox
+            // statusComboBox
             // 
-            currentStatusTextBox.BackColor = Color.FromArgb(30, 66, 126);
-            currentStatusTextBox.Font = new Font("Arial", 30F);
-            currentStatusTextBox.ForeColor = SystemColors.Control;
-            currentStatusTextBox.Location = new Point(1105, 840);
-            currentStatusTextBox.Name = "currentStatusTextBox";
-            currentStatusTextBox.Size = new Size(278, 53);
-            currentStatusTextBox.TabIndex = 50;
+            statusComboBox.BackColor = Color.FromArgb(30, 66, 126);
+            statusComboBox.Font = new Font("Arial", 30F);
+            statusComboBox.ForeColor = SystemColors.Control;
+            statusComboBox.FormattingEnabled = true;
+            statusComboBox.Items.AddRange(new object[] { "1. Before Borrow", "2. Done Borrow", "3. Check In SUC", "4. MPH Check In", "5. Queueing", "6. On Stage", "7. Off Stage", "8. Return" });
+            statusComboBox.Location = new Point(1035, 841);
+            statusComboBox.Name = "statusComboBox";
+            statusComboBox.Size = new Size(278, 53);
+            statusComboBox.TabIndex = 51;
             // 
-            // comboBox1
+            // label4
             // 
-            comboBox1.BackColor = Color.FromArgb(30, 66, 126);
-            comboBox1.Font = new Font("Arial", 30F);
-            comboBox1.ForeColor = SystemColors.Control;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "1. Before Borrow", "2. Done Borrow", "3. Check In SUC", "4. MPH Check In", "5. Queueing", "6. On Stage", "7. Off Stage", "8. Check Outr SUC", "9. Return" });
-            comboBox1.Location = new Point(1105, 918);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 53);
-            comboBox1.TabIndex = 51;
+            label4.AutoSize = true;
+            label4.BackColor = Color.FromArgb(30, 66, 126);
+            label4.Font = new Font("Arial", 30F);
+            label4.ForeColor = SystemColors.Control;
+            label4.Location = new Point(1358, 741);
+            label4.Name = "label4";
+            label4.Size = new Size(369, 45);
+            label4.TabIndex = 52;
+            label4.Text = "Graduation Speech:";
+            // 
+            // updateButton
+            // 
+            updateButton.BackColor = SystemColors.ControlLight;
+            updateButton.Font = new Font("Arial", 30F);
+            updateButton.Location = new Point(1358, 975);
+            updateButton.Name = "updateButton";
+            updateButton.Size = new Size(458, 54);
+            updateButton.TabIndex = 54;
+            updateButton.Text = "Update";
+            updateButton.UseVisualStyleBackColor = false;
+            updateButton.Click += updateButton_Click;
+            // 
+            // speechrichTextBox
+            // 
+            speechrichTextBox.BackColor = Color.FromArgb(30, 66, 126);
+            speechrichTextBox.Font = new Font("Arial", 12F);
+            speechrichTextBox.ForeColor = SystemColors.Control;
+            speechrichTextBox.Location = new Point(1358, 795);
+            speechrichTextBox.Name = "speechrichTextBox";
+            speechrichTextBox.Size = new Size(458, 174);
+            speechrichTextBox.TabIndex = 55;
+            speechrichTextBox.Text = "";
+            // 
+            // searchStudentIDTextBox
+            // 
+            searchStudentIDTextBox.Location = new Point(98, 156);
+            searchStudentIDTextBox.Name = "searchStudentIDTextBox";
+            searchStudentIDTextBox.PlaceholderText = "🔎 Search (Student ID)";
+            searchStudentIDTextBox.Size = new Size(846, 23);
+            searchStudentIDTextBox.TabIndex = 56;
+            searchStudentIDTextBox.TextChanged += searchStudentIDTextBox_TextChanged;
+            // 
+            // searchRFIDTextBox
+            // 
+            searchRFIDTextBox.Location = new Point(955, 156);
+            searchRFIDTextBox.Name = "searchRFIDTextBox";
+            searchRFIDTextBox.PlaceholderText = "🔎 Search (RFIDID)";
+            searchRFIDTextBox.Size = new Size(846, 23);
+            searchRFIDTextBox.TabIndex = 58;
+            searchRFIDTextBox.TextChanged += searchRFIDTextBox_TextChanged;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { refreshF5ToolStripMenuItem, importToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1904, 24);
+            menuStrip1.TabIndex = 59;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // refreshF5ToolStripMenuItem
+            // 
+            refreshF5ToolStripMenuItem.Name = "refreshF5ToolStripMenuItem";
+            refreshF5ToolStripMenuItem.ShortcutKeys = Keys.F5;
+            refreshF5ToolStripMenuItem.Size = new Size(81, 20);
+            refreshF5ToolStripMenuItem.Text = "Refresh (F5)";
+            refreshF5ToolStripMenuItem.Click += refreshF5ToolStripMenuItem_Click;
+            // 
+            // importToolStripMenuItem
+            // 
+            importToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { importToolStripMenuItem1, deleteAllToolStripMenuItem });
+            importToolStripMenuItem.Name = "importToolStripMenuItem";
+            importToolStripMenuItem.Size = new Size(56, 20);
+            importToolStripMenuItem.Text = "Option";
+            // 
+            // importToolStripMenuItem1
+            // 
+            importToolStripMenuItem1.Name = "importToolStripMenuItem1";
+            importToolStripMenuItem1.Size = new Size(180, 22);
+            importToolStripMenuItem1.Text = "Import";
+            importToolStripMenuItem1.Click += importToolStripMenuItem1_Click;
+            // 
+            // deleteAllToolStripMenuItem
+            // 
+            deleteAllToolStripMenuItem.Name = "deleteAllToolStripMenuItem";
+            deleteAllToolStripMenuItem.Size = new Size(180, 22);
+            deleteAllToolStripMenuItem.Text = "Delete All";
+            deleteAllToolStripMenuItem.Click += deleteAllToolStripMenuItem_Click;
             // 
             // dataListView
             // 
@@ -205,8 +297,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(comboBox1);
-            Controls.Add(currentStatusTextBox);
+            Controls.Add(searchRFIDTextBox);
+            Controls.Add(searchStudentIDTextBox);
+            Controls.Add(speechrichTextBox);
+            Controls.Add(updateButton);
+            Controls.Add(label4);
+            Controls.Add(statusComboBox);
             Controls.Add(label3);
             Controls.Add(rfidTextBox);
             Controls.Add(label2);
@@ -219,6 +315,8 @@
             Controls.Add(bottomBar);
             Controls.Add(menuLabel);
             Controls.Add(sucLogoPictureBox);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Margin = new Padding(3, 2, 3, 2);
             Name = "dataListView";
             Text = "RFID Integrated Cloak Inventory and Graduation Management System";
@@ -227,6 +325,8 @@
             ((System.ComponentModel.ISupportInitialize)bottomBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)returnPictureBox).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -245,7 +345,16 @@
         private TextBox rfidTextBox;
         private Label label2;
         private Label label3;
-        private TextBox currentStatusTextBox;
-        private ComboBox comboBox1;
+        private ComboBox statusComboBox;
+        private Label label4;
+        private Button updateButton;
+        private RichTextBox speechrichTextBox;
+        private TextBox searchStudentIDTextBox;
+        private TextBox searchRFIDTextBox;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem importToolStripMenuItem;
+        private ToolStripMenuItem importToolStripMenuItem1;
+        private ToolStripMenuItem deleteAllToolStripMenuItem;
+        private ToolStripMenuItem refreshF5ToolStripMenuItem;
     }
 }
