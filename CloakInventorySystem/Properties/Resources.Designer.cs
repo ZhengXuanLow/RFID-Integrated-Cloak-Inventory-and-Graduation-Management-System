@@ -63,6 +63,16 @@ namespace CloakInventorySystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _7be8762b341fe0a64ba424805b1d70e31f8b22f3_s2_n2_y1 {
+            get {
+                object obj = ResourceManager.GetObject("7be8762b341fe0a64ba424805b1d70e31f8b22f3_s2_n2_y1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _return {
             get {
                 object obj = ResourceManager.GetObject("return", resourceCulture);

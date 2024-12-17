@@ -19,9 +19,9 @@ namespace CloakInventorySystem
 
         private void gmsMenu_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
+            //this.TopMost = true;
 
             bottomBar.BackColor = ColorTranslator.FromHtml("#1E427E");
             sloganLabel.BackColor = ColorTranslator.FromHtml("#1E427E");
@@ -80,6 +80,13 @@ namespace CloakInventorySystem
         {
             sucCheckOut sucCheckOut = new sucCheckOut();
             sucCheckOut.Show();
+            this.Hide();
+        }
+
+        private void ceremonyScreenButton_Click(object sender, EventArgs e)
+        {
+            ceremonyScreen ceremonyScreen = new ceremonyScreen();
+            ceremonyScreen.Show();
             this.Hide();
         }
     }

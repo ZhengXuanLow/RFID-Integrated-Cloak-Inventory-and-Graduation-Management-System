@@ -6,6 +6,9 @@ using System.Windows.Forms;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using CsvHelper;
+using System.Globalization;
+using Microsoft.VisualBasic.FileIO;
 
 namespace CloakInventorySystem
 {
@@ -47,22 +50,22 @@ namespace CloakInventorySystem
             string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             string query = @"
             SELECT 
-            s.studentID, 
-            s.name, 
-            s.age,  
-            c.courseName AS courseName, 
-            s.invitationCode, 
-            cl.rfidID,
-            cs.status AS currentStatus,
-            s.graduationSpeech
-            FROM 
-            student s
-            JOIN 
-            course c ON s.courseID = c.courseID
-            JOIN 
-            cloak cl ON s.studentID = cl.studentID
-            JOIN
-            currentStatus cs ON s.currentStatusID = cs.currentStatusID;
+        s.studentID, 
+        s.name, 
+        s.age,  
+        c.courseName AS courseName, 
+        s.invitationCode, 
+        cl.rfidID,
+        cs.status AS currentStatus,
+        s.graduationSpeech
+        FROM 
+        student s
+        LEFT JOIN 
+        course c ON s.courseID = c.courseID
+        LEFT JOIN 
+        cloak cl ON s.studentID = cl.studentID
+        LEFT JOIN
+        currentStatus cs ON s.currentStatusID = cs.currentStatusID;
             ";
 
 
@@ -291,7 +294,7 @@ namespace CloakInventorySystem
 
             if (string.IsNullOrEmpty(newrfidId))
             {
-                MessageBox.Show("Please enter a valid invitation code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please borrow the cloak first to update rfidID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -425,7 +428,7 @@ namespace CloakInventorySystem
                         }
                         else
                         {
-                            MessageBox.Show("No student record found to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Please Borrow the Cloak first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -509,7 +512,6 @@ namespace CloakInventorySystem
 
         private void importToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            // Create and configure the OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Title = "Select CSV File",
@@ -517,62 +519,60 @@ namespace CloakInventorySystem
                 DefaultExt = "csv"
             };
 
-            // Show the dialog and check if the user selected a file
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string filePath = openFileDialog.FileName; // Get the file path
+                string filePath = openFileDialog.FileName;
                 string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
                 try
                 {
-                    // Read the CSV file
-                    var lines = File.ReadAllLines(filePath);
-
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    using (TextFieldParser parser = new TextFieldParser(filePath))
                     {
-                        conn.Open();
+                        parser.TextFieldType = FieldType.Delimited;
+                        parser.SetDelimiters(",");
+                        parser.HasFieldsEnclosedInQuotes = true;
 
-                        // Start a SQL transaction
-                        using (SqlTransaction transaction = conn.BeginTransaction())
+                        using (SqlConnection conn = new SqlConnection(connectionString))
                         {
-                            try
+                            conn.Open();
+                            using (SqlTransaction transaction = conn.BeginTransaction())
                             {
-                                foreach (var line in lines.Skip(1))  // Skip header row
+                                try
                                 {
-                                    string[] columns = line.Split(',');
+                                    parser.ReadLine(); // Skip header
 
-                                    // Prepare your SQL insert query
-                                    string query = @"INSERT INTO student 
-                                                 (studentID, name, age, readyGraduate, courseID, currentStatusID, invitationCode, graduationSpeech) 
-                                                 VALUES 
-                                                 (@studentID, @name, @age, @readyGraduate, @courseID, @currentStatusID, @invitationCode, @graduationSpeech)";
-
-                                    using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                                    while (!parser.EndOfData)
                                     {
-                                        // Add parameters
-                                        cmd.Parameters.AddWithValue("@studentID", columns[0]);
-                                        cmd.Parameters.AddWithValue("@name", columns[1]);
-                                        cmd.Parameters.AddWithValue("@age", Convert.ToInt32(columns[2]));
-                                        cmd.Parameters.AddWithValue("@readyGraduate", Convert.ToInt32(columns[3]));
-                                        cmd.Parameters.AddWithValue("@courseID", Convert.ToInt32(columns[4]));
-                                        cmd.Parameters.AddWithValue("@currentStatusID", Convert.ToInt32(columns[5]));
-                                        cmd.Parameters.AddWithValue("@invitationCode", columns[6]);
-                                        cmd.Parameters.AddWithValue("@graduationSpeech", columns[7]);
+                                        string[] fields = parser.ReadFields();
 
-                                        // Execute the query
-                                        cmd.ExecuteNonQuery();
+                                        string query = @"INSERT INTO student 
+                                                (studentID, name, age, readyGraduate, courseID, currentStatusID, invitationCode, graduationSpeech) 
+                                                VALUES 
+                                                (@studentID, @name, @age, @readyGraduate, @courseID, @currentStatusID, @invitationCode, @graduationSpeech)";
+
+                                        using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                                        {
+                                            cmd.Parameters.AddWithValue("@studentID", fields[0]);
+                                            cmd.Parameters.AddWithValue("@name", fields[1]);
+                                            cmd.Parameters.AddWithValue("@age", Convert.ToInt32(fields[2]));
+                                            cmd.Parameters.AddWithValue("@readyGraduate", Convert.ToInt32(fields[3]));
+                                            cmd.Parameters.AddWithValue("@courseID", Convert.ToInt32(fields[4]));
+                                            cmd.Parameters.AddWithValue("@currentStatusID", Convert.ToInt32(fields[5]));
+                                            cmd.Parameters.AddWithValue("@invitationCode", fields[6]);
+                                            cmd.Parameters.AddWithValue("@graduationSpeech", fields[7]);
+
+                                            cmd.ExecuteNonQuery();
+                                        }
                                     }
-                                }
 
-                                // Commit the transaction
-                                transaction.Commit();
-                                MessageBox.Show("Data imported successfully!");
-                            }
-                            catch (Exception ex)
-                            {
-                                // Rollback if any error occurs
-                                transaction.Rollback();
-                                MessageBox.Show($"Error: {ex.Message}");
+                                    transaction.Commit();
+                                    MessageBox.Show("Data imported successfully!");
+                                }
+                                catch (Exception ex)
+                                {
+                                    transaction.Rollback();
+                                    MessageBox.Show($"Error: {ex.Message}");
+                                }
                             }
                         }
                     }

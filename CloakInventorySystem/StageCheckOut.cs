@@ -145,8 +145,11 @@ namespace CloakInventorySystem
                             confirmRFIDLabel.Visible = false;
                             UserInputTextBox.Text = string.Empty;
                             setStatus(currentStudentID);
-                            hideRFIDRelatedTextboxShowGIF();
+                            removeQueue(currentStudentID);
+                            autoClosingMessageBox.Show("Status Updated, system redirect after 3 seconds", "Thank You", 3000);
                             resetAll();
+                            hideRFIDRelatedTextboxShowGIF();
+                            
                         }
                     }
                 }
@@ -314,6 +317,38 @@ namespace CloakInventorySystem
                         }
                         else
                         {
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        void removeQueue(string studentID)
+        {
+            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string query = "DELETE FROM queueTable WHERE studentID = @studentID";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@studentID", studentID);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            // Success
+                        }
+                        else
+                        {
+                            // No rows affected
                         }
                     }
                 }

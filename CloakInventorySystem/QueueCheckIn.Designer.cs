@@ -63,11 +63,11 @@
             sloganLabel.Anchor = AnchorStyles.Bottom;
             sloganLabel.AutoSize = true;
             sloganLabel.BackColor = Color.Transparent;
-            sloganLabel.Font = new Font("Arial Narrow", 40.75F, FontStyle.Bold | FontStyle.Italic);
+            sloganLabel.Font = new Font("Microsoft Sans Serif", 40.75F, FontStyle.Bold | FontStyle.Italic);
             sloganLabel.ForeColor = SystemColors.Control;
             sloganLabel.Location = new Point(647, 949);
             sloganLabel.Name = "sloganLabel";
-            sloganLabel.Size = new Size(684, 65);
+            sloganLabel.Size = new Size(837, 63);
             sloganLabel.TabIndex = 15;
             sloganLabel.Text = "INSPIRING GREAT LEARNING";
             // 

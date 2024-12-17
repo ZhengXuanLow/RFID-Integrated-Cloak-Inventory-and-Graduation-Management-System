@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -144,9 +145,10 @@ namespace CloakInventorySystem
                             rfidGuideLabel.Visible = true;
                             confirmRFIDLabel.Visible = false;
                             UserInputTextBox.Text = string.Empty;
-                            setStatus(currentStudentID);
-                            hideRFIDRelatedTextboxShowGIF();
+                            setStatus(currentStudentID);                           
                             resetAll();
+                            autoClosingMessageBox.Show("Status Updated, system redirect after 3 seconds", "Thank You", 3000);
+                            hideRFIDRelatedTextboxShowGIF();
                         }
                     }
                 }

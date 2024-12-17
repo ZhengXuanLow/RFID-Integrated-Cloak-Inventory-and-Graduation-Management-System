@@ -146,8 +146,10 @@ namespace CloakInventorySystem
                             UserInputTextBox.Text = string.Empty;
                             setStudentIDonCloak(currentRFIDCode);
                             setStatus(currentStudentID);
-                            hideRFIDRelatedTextboxShowGIF();
+                            autoClosingMessageBox.Show("Status Updated, system redirect after 3 seconds", "Thank You", 3000);
                             resetAll();
+                            hideRFIDRelatedTextboxShowGIF();
+                            
                         }
                     }
                 }
