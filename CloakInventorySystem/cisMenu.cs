@@ -54,5 +54,12 @@ namespace CloakInventorySystem
             dataListView.Show();
             this.Hide();
         }
+
+        private void dashboardButton_Click(object sender, EventArgs e)
+        {
+            dashBoard dashBoard = new dashBoard();
+            dashBoard.Show();
+            this.Hide();
+        }
     }
 }
