@@ -136,8 +136,8 @@ namespace CloakInventorySystem
         private void borrowCloak_Load(object sender, EventArgs e)
         {
 
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             //this.TopMost = true;
 
             bottomBar.BackColor = ColorTranslator.FromHtml("#1E427E");
@@ -236,6 +236,8 @@ namespace CloakInventorySystem
                             resetAll();
                             hideQRRelatedTextboxShowGIF();
                             guideLabel.Visible = true;
+                            rfidGif.Visible = false;
+                            QRGif.Visible = true;
                         }
                     }
                 }

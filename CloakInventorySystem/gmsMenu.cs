@@ -19,8 +19,8 @@ namespace CloakInventorySystem
 
         private void gmsMenu_Load(object sender, EventArgs e)
         {
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             //this.TopMost = true;
 
             bottomBar.BackColor = ColorTranslator.FromHtml("#1E427E");
@@ -87,7 +87,7 @@ namespace CloakInventorySystem
         {
             ceremonyScreen ceremonyScreen = new ceremonyScreen();
             ceremonyScreen.Show();
-            this.Hide();
+            
         }
     }
 }

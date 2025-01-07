@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             sloganLabel = new Label();
             bottomBar = new PictureBox();
             menuLabel = new Label();
@@ -118,29 +118,30 @@
             // borrowChart
             // 
             borrowChart.BackColor = Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            borrowChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            borrowChart.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            borrowChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            borrowChart.Legends.Add(legend1);
             borrowChart.Location = new Point(68, 264);
             borrowChart.Name = "borrowChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            borrowChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            borrowChart.Series.Add(series1);
             borrowChart.Size = new Size(610, 463);
             borrowChart.TabIndex = 17;
             borrowChart.Text = "chart1";
+            borrowChart.Click += borrowChart_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 41.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(130, 730);
+            label2.Location = new Point(97, 730);
             label2.Name = "label2";
-            label2.Size = new Size(438, 63);
+            label2.Size = new Size(504, 63);
             label2.TabIndex = 19;
-            label2.Text = "Borrow Progress";
+            label2.Text = "Collection Progress";
             // 
             // label1
             // 
@@ -148,23 +149,23 @@
             label1.Font = new Font("Arial", 41.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(1312, 730);
             label1.Name = "label1";
-            label1.Size = new Size(445, 63);
+            label1.Size = new Size(430, 63);
             label1.TabIndex = 21;
-            label1.Text = "Complete Return";
+            label1.Text = "Return Progress";
             // 
             // completeChart
             // 
             completeChart.BackColor = Color.Transparent;
-            chartArea5.Name = "ChartArea1";
-            completeChart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            completeChart.Legends.Add(legend5);
+            chartArea2.Name = "ChartArea1";
+            completeChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            completeChart.Legends.Add(legend2);
             completeChart.Location = new Point(1282, 264);
             completeChart.Name = "completeChart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            completeChart.Series.Add(series5);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            completeChart.Series.Add(series2);
             completeChart.Size = new Size(610, 463);
             completeChart.TabIndex = 20;
             // 
@@ -181,16 +182,16 @@
             // statusChart
             // 
             statusChart.BackColor = Color.Transparent;
-            chartArea6.Name = "ChartArea1";
-            statusChart.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            statusChart.Legends.Add(legend6);
+            chartArea3.Name = "ChartArea1";
+            statusChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            statusChart.Legends.Add(legend3);
             statusChart.Location = new Point(684, 264);
             statusChart.Name = "statusChart";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            statusChart.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            statusChart.Series.Add(series3);
             statusChart.Size = new Size(610, 463);
             statusChart.TabIndex = 22;
             statusChart.Text = "chart2";

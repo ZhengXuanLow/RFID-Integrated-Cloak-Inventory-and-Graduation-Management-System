@@ -93,8 +93,8 @@ namespace CloakInventorySystem
         private void borrowCloak_Load(object sender, EventArgs e)
         {
 
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             //this.TopMost = true;
 
             bottomBar.BackColor = ColorTranslator.FromHtml("#1E427E");
@@ -148,6 +148,7 @@ namespace CloakInventorySystem
                             autoClosingMessageBox.Show("Status Updated, system redirect after 3 seconds", "Thank You", 3000);
                             resetAll();
                             hideRFIDRelatedTextboxShowGIF();
+                            rfidGif.Visible = false;
                             
                         }
                     }

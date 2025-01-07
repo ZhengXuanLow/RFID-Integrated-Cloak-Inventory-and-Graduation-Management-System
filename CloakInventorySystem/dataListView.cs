@@ -27,9 +27,8 @@ namespace CloakInventorySystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
-            //this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
 
             bottomBar.BackColor = ColorTranslator.FromHtml("#1E427E");
             nameLabel.BackColor = ColorTranslator.FromHtml("#1E427E");
@@ -216,6 +215,12 @@ namespace CloakInventorySystem
 
         private void updateButton_Click(object sender, EventArgs e)
         {
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Scan the admin Card", "Update Student Information");
+            if (input != "0688503939")
+            {
+                MessageBox.Show("Incorrect Card", "Error");
+                return;
+            }
             updateInvitationCode(currentStudentID);
             updateRfidID(currentStudentID);
             updateCurrentStatus(currentStudentID);
@@ -483,6 +488,18 @@ namespace CloakInventorySystem
 
         private void deleteAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Scan the admin Card", "Delete Student Table");
+
+                
+                if (input != "0688503939")
+                {
+                    MessageBox.Show("Incorrect card", "Error");
+                return;
+                }
+           
+
+            
+
             string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             string query = "DELETE FROM student"; // This will delete all rows
 
@@ -494,7 +511,7 @@ namespace CloakInventorySystem
                     SqlCommand command = new SqlCommand(query, connection);
                     int rowsAffected = command.ExecuteNonQuery();
 
-                    MessageBox.Show($"{rowsAffected} rows deleted.");
+                    //MessageBox.Show($"{rowsAffected} rows deleted.");
                 }
                 catch (Exception ex)
                 {
@@ -502,7 +519,11 @@ namespace CloakInventorySystem
                 }
             }
 
+            MessageBox.Show("Deleted Success", "Success");
             LoadDataIntoDataGridView(dataGridView);
+            
+
+            
         }
 
         private void refreshF5ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -567,6 +588,7 @@ namespace CloakInventorySystem
 
                                     transaction.Commit();
                                     MessageBox.Show("Data imported successfully!");
+                                    LoadDataIntoDataGridView(dataGridView);
                                 }
                                 catch (Exception ex)
                                 {

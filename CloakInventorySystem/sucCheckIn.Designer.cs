@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sucCheckIn));
             sloganLabel = new Label();
             bottomBar = new PictureBox();
             menuLabel = new Label();
@@ -63,11 +64,11 @@
             sloganLabel.Anchor = AnchorStyles.Bottom;
             sloganLabel.AutoSize = true;
             sloganLabel.BackColor = Color.Transparent;
-            sloganLabel.Font = new Font("Arial Narrow", 40.75F, FontStyle.Bold | FontStyle.Italic);
+            sloganLabel.Font = new Font("Microsoft Sans Serif", 40.75F, FontStyle.Bold | FontStyle.Italic);
             sloganLabel.ForeColor = SystemColors.Control;
             sloganLabel.Location = new Point(647, 949);
             sloganLabel.Name = "sloganLabel";
-            sloganLabel.Size = new Size(684, 65);
+            sloganLabel.Size = new Size(837, 63);
             sloganLabel.TabIndex = 15;
             sloganLabel.Text = "INSPIRING GREAT LEARNING";
             // 
@@ -192,7 +193,7 @@
             facultyTextBox.Location = new Point(567, 465);
             facultyTextBox.Name = "facultyTextBox";
             facultyTextBox.ReadOnly = true;
-            facultyTextBox.Size = new Size(385, 63);
+            facultyTextBox.Size = new Size(1137, 63);
             facultyTextBox.TabIndex = 26;
             // 
             // programTextBox
@@ -201,7 +202,7 @@
             programTextBox.Location = new Point(567, 569);
             programTextBox.Name = "programTextBox";
             programTextBox.ReadOnly = true;
-            programTextBox.Size = new Size(385, 63);
+            programTextBox.Size = new Size(1137, 63);
             programTextBox.TabIndex = 27;
             // 
             // graduateTextBox
@@ -280,7 +281,7 @@
             // 
             // rfidGif
             // 
-            rfidGif.Image = Properties.Resources.rfid;
+            rfidGif.Image = (Image)resources.GetObject("rfidGif.Image");
             rfidGif.Location = new Point(652, 220);
             rfidGif.Name = "rfidGif";
             rfidGif.Size = new Size(600, 600);

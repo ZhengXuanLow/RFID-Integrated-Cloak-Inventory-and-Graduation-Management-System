@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(returnCloak));
             sloganLabel = new Label();
             bottomBar = new PictureBox();
             menuLabel = new Label();
@@ -65,18 +66,17 @@
             sloganLabel.BackColor = Color.Transparent;
             sloganLabel.Font = new Font("Microsoft Sans Serif", 40.75F, FontStyle.Bold | FontStyle.Italic);
             sloganLabel.ForeColor = SystemColors.Control;
-            sloganLabel.Location = new Point(647, 949);
+            sloganLabel.Location = new Point(657, 949);
             sloganLabel.Name = "sloganLabel";
             sloganLabel.Size = new Size(837, 63);
             sloganLabel.TabIndex = 15;
             sloganLabel.Text = "INSPIRING GREAT LEARNING";
-
             // 
             // bottomBar
             // 
             bottomBar.Anchor = AnchorStyles.Bottom;
             bottomBar.BackColor = Color.Blue;
-            bottomBar.Location = new Point(-16, 914);
+            bottomBar.Location = new Point(-6, 914);
             bottomBar.Name = "bottomBar";
             bottomBar.Size = new Size(1927, 352);
             bottomBar.TabIndex = 14;
@@ -193,7 +193,7 @@
             facultyTextBox.Location = new Point(567, 465);
             facultyTextBox.Name = "facultyTextBox";
             facultyTextBox.ReadOnly = true;
-            facultyTextBox.Size = new Size(385, 63);
+            facultyTextBox.Size = new Size(1143, 63);
             facultyTextBox.TabIndex = 26;
             // 
             // programTextBox
@@ -202,7 +202,7 @@
             programTextBox.Location = new Point(567, 569);
             programTextBox.Name = "programTextBox";
             programTextBox.ReadOnly = true;
-            programTextBox.Size = new Size(385, 63);
+            programTextBox.Size = new Size(1143, 63);
             programTextBox.TabIndex = 27;
             // 
             // graduateTextBox
@@ -281,7 +281,7 @@
             // 
             // rfidGif
             // 
-            rfidGif.Image = Properties.Resources.rfid;
+            rfidGif.Image = (Image)resources.GetObject("rfidGif.Image");
             rfidGif.Location = new Point(652, 220);
             rfidGif.Name = "rfidGif";
             rfidGif.Size = new Size(600, 600);
@@ -304,7 +304,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new Size(1924, 1041);
             Controls.Add(returnPictureBox);
             Controls.Add(rfidGif);
             Controls.Add(label1);

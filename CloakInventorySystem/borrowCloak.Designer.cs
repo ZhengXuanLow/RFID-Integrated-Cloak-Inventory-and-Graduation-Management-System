@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(borrowCloak));
             sloganLabel = new Label();
             bottomBar = new PictureBox();
             menuLabel = new Label();
@@ -66,11 +67,11 @@
             sloganLabel.Anchor = AnchorStyles.Bottom;
             sloganLabel.AutoSize = true;
             sloganLabel.BackColor = Color.Transparent;
-            sloganLabel.Font = new Font("Arial Narrow", 40.75F, FontStyle.Bold | FontStyle.Italic);
+            sloganLabel.Font = new Font("Microsoft Sans Serif", 40.75F, FontStyle.Bold | FontStyle.Italic);
             sloganLabel.ForeColor = SystemColors.Control;
             sloganLabel.Location = new Point(647, 949);
             sloganLabel.Name = "sloganLabel";
-            sloganLabel.Size = new Size(684, 65);
+            sloganLabel.Size = new Size(837, 63);
             sloganLabel.TabIndex = 15;
             sloganLabel.Text = "INSPIRING GREAT LEARNING";
             // 
@@ -209,7 +210,7 @@
             facultyTextBox.Location = new Point(567, 465);
             facultyTextBox.Name = "facultyTextBox";
             facultyTextBox.ReadOnly = true;
-            facultyTextBox.Size = new Size(385, 63);
+            facultyTextBox.Size = new Size(1137, 63);
             facultyTextBox.TabIndex = 26;
             // 
             // programTextBox
@@ -218,7 +219,7 @@
             programTextBox.Location = new Point(567, 569);
             programTextBox.Name = "programTextBox";
             programTextBox.ReadOnly = true;
-            programTextBox.Size = new Size(385, 63);
+            programTextBox.Size = new Size(1137, 63);
             programTextBox.TabIndex = 27;
             // 
             // graduateTextBox
@@ -299,7 +300,7 @@
             // 
             // QRGif
             // 
-            QRGif.Image = Properties.Resources.qr;
+            QRGif.Image = (Image)resources.GetObject("QRGif.Image");
             QRGif.Location = new Point(744, 187);
             QRGif.Name = "QRGif";
             QRGif.Size = new Size(600, 600);
@@ -309,8 +310,8 @@
             // 
             // rfidGif
             // 
-            rfidGif.Image = Properties.Resources.rfid;
-            rfidGif.Location = new Point(744, 184);
+            rfidGif.Image = (Image)resources.GetObject("rfidGif.Image");
+            rfidGif.Location = new Point(744, 187);
             rfidGif.Name = "rfidGif";
             rfidGif.Size = new Size(600, 600);
             rfidGif.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -334,7 +335,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
             Controls.Add(returnPictureBox);
-            Controls.Add(rfidGif);
             Controls.Add(QRGif);
             Controls.Add(cloakSize1Label);
             Controls.Add(confirmRFIDLabel);
@@ -359,6 +359,7 @@
             Controls.Add(bottomBar);
             Controls.Add(menuLabel);
             Controls.Add(sucLogoPictureBox);
+            Controls.Add(rfidGif);
             Name = "borrowCloak";
             Text = "borrowScanQR";
             Load += borrowCloak_Load;

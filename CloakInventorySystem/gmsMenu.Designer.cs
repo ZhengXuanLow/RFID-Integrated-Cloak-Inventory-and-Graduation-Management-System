@@ -37,7 +37,6 @@
             MPHCIbutton = new Button();
             queueButton = new Button();
             stageCIButton = new Button();
-            campusCOButton = new Button();
             ceremonyScreenButton = new Button();
             stageCOButton = new Button();
             ((System.ComponentModel.ISupportInitialize)bottomBar).BeginInit();
@@ -73,9 +72,9 @@
             campusCIButton.BackColor = SystemColors.ButtonShadow;
             campusCIButton.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             campusCIButton.ForeColor = SystemColors.Control;
-            campusCIButton.Location = new Point(338, 359);
+            campusCIButton.Location = new Point(342, 410);
             campusCIButton.Name = "campusCIButton";
-            campusCIButton.Size = new Size(380, 214);
+            campusCIButton.Size = new Size(380, 284);
             campusCIButton.TabIndex = 8;
             campusCIButton.Text = "Campus Check In";
             campusCIButton.UseVisualStyleBackColor = false;
@@ -85,11 +84,11 @@
             // 
             menuLabel.AutoSize = true;
             menuLabel.Font = new Font("Arial", 51.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            menuLabel.Location = new Point(448, 44);
+            menuLabel.Location = new Point(318, 44);
             menuLabel.Name = "menuLabel";
-            menuLabel.Size = new Size(998, 79);
+            menuLabel.Size = new Size(1314, 79);
             menuLabel.TabIndex = 7;
-            menuLabel.Text = "CLOAK INVENTORY SYSTEM";
+            menuLabel.Text = "GRADUATION MANAGEMENT SYSTEM";
             // 
             // sucLogoPictureBox
             // 
@@ -120,9 +119,9 @@
             MPHCIbutton.DialogResult = DialogResult.Yes;
             MPHCIbutton.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             MPHCIbutton.ForeColor = SystemColors.Control;
-            MPHCIbutton.Location = new Point(752, 359);
+            MPHCIbutton.Location = new Point(756, 410);
             MPHCIbutton.Name = "MPHCIbutton";
-            MPHCIbutton.Size = new Size(380, 214);
+            MPHCIbutton.Size = new Size(380, 284);
             MPHCIbutton.TabIndex = 17;
             MPHCIbutton.Text = "MPH Check In";
             MPHCIbutton.UseVisualStyleBackColor = false;
@@ -134,9 +133,9 @@
             queueButton.DialogResult = DialogResult.Yes;
             queueButton.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             queueButton.ForeColor = SystemColors.Control;
-            queueButton.Location = new Point(1165, 359);
+            queueButton.Location = new Point(1169, 410);
             queueButton.Name = "queueButton";
-            queueButton.Size = new Size(380, 214);
+            queueButton.Size = new Size(380, 284);
             queueButton.TabIndex = 18;
             queueButton.Text = "Queue Check In";
             queueButton.UseVisualStyleBackColor = false;
@@ -148,27 +147,13 @@
             stageCIButton.DialogResult = DialogResult.Yes;
             stageCIButton.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             stageCIButton.ForeColor = SystemColors.Control;
-            stageCIButton.Location = new Point(338, 620);
+            stageCIButton.Location = new Point(342, 700);
             stageCIButton.Name = "stageCIButton";
-            stageCIButton.Size = new Size(589, 104);
+            stageCIButton.Size = new Size(589, 174);
             stageCIButton.TabIndex = 19;
             stageCIButton.Text = "Stage Check In ";
             stageCIButton.UseVisualStyleBackColor = false;
             stageCIButton.Click += stageCIButton_Click;
-            // 
-            // campusCOButton
-            // 
-            campusCOButton.BackColor = SystemColors.ButtonShadow;
-            campusCOButton.DialogResult = DialogResult.Yes;
-            campusCOButton.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            campusCOButton.ForeColor = SystemColors.Control;
-            campusCOButton.Location = new Point(338, 767);
-            campusCOButton.Name = "campusCOButton";
-            campusCOButton.Size = new Size(1207, 104);
-            campusCOButton.TabIndex = 20;
-            campusCOButton.Text = "Campus Check Out";
-            campusCOButton.UseVisualStyleBackColor = false;
-            campusCOButton.Click += campusCOButton_Click;
             // 
             // ceremonyScreenButton
             // 
@@ -176,9 +161,9 @@
             ceremonyScreenButton.DialogResult = DialogResult.Yes;
             ceremonyScreenButton.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ceremonyScreenButton.ForeColor = SystemColors.Control;
-            ceremonyScreenButton.Location = new Point(338, 213);
+            ceremonyScreenButton.Location = new Point(342, 230);
             ceremonyScreenButton.Name = "ceremonyScreenButton";
-            ceremonyScreenButton.Size = new Size(1207, 104);
+            ceremonyScreenButton.Size = new Size(1207, 174);
             ceremonyScreenButton.TabIndex = 21;
             ceremonyScreenButton.Text = "CEREMONY SCREEN";
             ceremonyScreenButton.UseVisualStyleBackColor = false;
@@ -190,9 +175,9 @@
             stageCOButton.DialogResult = DialogResult.Yes;
             stageCOButton.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             stageCOButton.ForeColor = SystemColors.Control;
-            stageCOButton.Location = new Point(965, 620);
+            stageCOButton.Location = new Point(969, 700);
             stageCOButton.Name = "stageCOButton";
-            stageCOButton.Size = new Size(580, 104);
+            stageCOButton.Size = new Size(580, 174);
             stageCOButton.TabIndex = 22;
             stageCOButton.Text = "Stage Check Out";
             stageCOButton.UseVisualStyleBackColor = false;
@@ -205,7 +190,6 @@
             ClientSize = new Size(1904, 1041);
             Controls.Add(stageCOButton);
             Controls.Add(ceremonyScreenButton);
-            Controls.Add(campusCOButton);
             Controls.Add(stageCIButton);
             Controls.Add(queueButton);
             Controls.Add(MPHCIbutton);
@@ -236,7 +220,6 @@
         private Button MPHCIbutton;
         private Button queueButton;
         private Button stageCIButton;
-        private Button campusCOButton;
         private Button ceremonyScreenButton;
         private Button stageCOButton;
     }

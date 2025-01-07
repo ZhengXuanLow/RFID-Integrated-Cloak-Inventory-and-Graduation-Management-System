@@ -12,6 +12,14 @@ namespace CloakInventorySystem
         private int currentStudent = 0;
         private const string AzureSpeechKey = "Fo0tIX3gYlmB8sV8BZOobYHy3Jm5ala7xYb5M278IO6akxEHbwjOJQQJ99AKACqBBLyXJ3w3AAAYACOGpxD6";
         private const string AzureServiceRegion = "southeastasia";
+
+        static string prevName = "";
+        static string prevCourseName = "";
+        static string prevDepartmentName = "";
+        static string prevGraduationSpeech = "";
+        int prevStatusID = 0;
+        static bool hasRun = false;
+
         public ceremonyScreen()
         {
             InitializeComponent();
@@ -22,6 +30,7 @@ namespace CloakInventorySystem
             //this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
             //this.TopMost = true;
+
             nameLabel.BackColor = Color.Transparent;
             courseLabel.BackColor = Color.Transparent;
             facultyLabel.BackColor = Color.Transparent;
@@ -29,7 +38,7 @@ namespace CloakInventorySystem
             getStudentInfo();
 
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 1000; // Set interval to 1 second (1000 milliseconds)
+            timer.Interval = 3000; // Set interval to 1 second (1000 milliseconds)
             timer.Tick += Timer_Tick; // Attach the event handler
             timer.Start();
         }
@@ -46,22 +55,23 @@ namespace CloakInventorySystem
                     Console.WriteLine("Connection successful!");
 
                     string query = @"
-                        SELECT TOP 1 
-                        s.name,
-                        s.graduationSpeech,
-                        c.courseName, 
-                        d.departmentName,
-                        s.currentStatusID
-                        FROM queueTable q
-                        INNER JOIN student s ON q.studentID = s.studentID
-                        JOIN 
-                        course c ON s.courseID = c.courseID
-                        JOIN department d ON c.departmentID = d.departmentID";
+                SELECT TOP 1 
+                s.name,
+                s.graduationSpeech,
+                c.courseName, 
+                d.departmentName,
+                s.currentStatusID
+                FROM queueTable q
+                INNER JOIN student s ON q.studentID = s.studentID
+                JOIN 
+                course c ON s.courseID = c.courseID
+                JOIN department d ON c.departmentID = d.departmentID";
 
 
                     SqlCommand command = new SqlCommand(query, connection);
                     SqlDataReader reader = command.ExecuteReader();
 
+      
                     while (reader.Read())
                     {
                         string name = reader["name"].ToString();
@@ -70,10 +80,10 @@ namespace CloakInventorySystem
                         string graduationSpeech = reader["graduationSpeech"].ToString();
                         int currentStatusID = reader["currentStatusID"] != DBNull.Value ? Convert.ToInt32(reader["currentStatusID"]) : 0;
 
+                        bool isSameResult = (name == prevName && courseName == prevCourseName && departmentName == prevDepartmentName && graduationSpeech == prevGraduationSpeech && currentStatusID == prevStatusID);
 
-                        if (currentStatusID == 6 && currentStudent == 0)
+                        if (currentStatusID == 6 && isSameResult && !hasRun)
                         {
-                            currentStudent = 1;
                             nameLabel.Text = "";
                             courseLabel.Text = "";
                             facultyLabel.Text = "";
@@ -84,35 +94,34 @@ namespace CloakInventorySystem
                             facultyLabel.Text = departmentName;
                             graduationLabel.Text = graduationSpeech;
                             textToSpeechAsync();
+                            hasRun = true;
                         }
-                        else if (currentStatusID == 6 && currentStudent == 1)
+                        else if (!isSameResult)
                         {
-
+                            hasRun = false;
                         }
 
-
-                        else
-                        {
-                            nameLabel.Text = "";
-                            courseLabel.Text = "";
-                            facultyLabel.Text = "";
-                            graduationLabel.Text = "";
-                            currentStudent = 0;
-                        }
-
-                        reader.Close();
+                        // Update previous values
+                        prevName = name;
+                        prevCourseName = courseName;
+                        prevDepartmentName = departmentName;
+                        prevGraduationSpeech = graduationSpeech;
+                        prevStatusID = currentStatusID;
                     }
+                    reader.Close();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"An error occurred: {ex.Message}");
                 }
             }
-
-
-
-
         }
+
+
+
+
+
+
 
 
 
