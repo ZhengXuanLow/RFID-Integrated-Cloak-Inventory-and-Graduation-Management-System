@@ -10,8 +10,8 @@ namespace CloakInventorySystem
     {
         private System.Windows.Forms.Timer timer;
         private int currentStudent = 0;
-        private const string AzureSpeechKey = "Fo0tIX3gYlmB8sV8BZOobYHy3Jm5ala7xYb5M278IO6akxEHbwjOJQQJ99AKACqBBLyXJ3w3AAAYACOGpxD6";
-        private const string AzureServiceRegion = "southeastasia";
+        private const string AzureSpeechKey = "";
+        private const string AzureServiceRegion = "";
 
         static string prevName = "";
         static string prevCourseName = "";
@@ -45,7 +45,7 @@ namespace CloakInventorySystem
 
         void getStudentInfo()
         {
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

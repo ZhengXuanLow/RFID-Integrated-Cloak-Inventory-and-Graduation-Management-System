@@ -247,7 +247,7 @@ namespace CloakInventorySystem
 
         void getStudentInfo(string qrCodeContent)
         {
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -319,7 +319,7 @@ namespace CloakInventorySystem
 
         void getCloakInfo(string RFIDContent)
         {
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -363,7 +363,7 @@ namespace CloakInventorySystem
         void setStudentIDonCloak(string RFIDID, string studentID)
         {
 
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
             string query = "UPDATE cloak SET studentID = @studentID WHERE rfidID = @RFIDID";
 
             try
@@ -417,7 +417,7 @@ namespace CloakInventorySystem
 
         void setStatus(string studentID)
         {
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
             string query = "UPDATE student SET currentStatusID = '2' WHERE studentID = @studentID";
 
             try

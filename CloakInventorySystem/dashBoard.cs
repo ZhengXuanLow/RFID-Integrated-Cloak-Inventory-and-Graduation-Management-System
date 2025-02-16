@@ -90,7 +90,7 @@ namespace CloakInventorySystem
 
         private int ExecuteScalarQuery(string query)
         {
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -184,7 +184,7 @@ namespace CloakInventorySystem
 
             var statusCounts = new Dictionary<int, int>();
 
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();

@@ -46,7 +46,7 @@ namespace CloakInventorySystem
 
         public void LoadDataIntoDataGridView(DataGridView dgv)
         {
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
             string query = @"
             SELECT 
         s.studentID, 
@@ -113,7 +113,7 @@ namespace CloakInventorySystem
         private void searchStudentIDTextBox_TextChanged(object sender, EventArgs e)
         {
             rfidTextBox.Text = "";
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
 
             // Adjust SQL query to allow partial matching using LIKE
             string query = @"
@@ -164,7 +164,7 @@ namespace CloakInventorySystem
         private void searchRFIDTextBox_TextChanged(object sender, EventArgs e)
         {
             searchStudentIDTextBox.Text = "";
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
 
             // SQL query to search by RFID ID using LIKE
             string query = @"
@@ -232,7 +232,7 @@ namespace CloakInventorySystem
 
         void updateInvitationCode(String currentStudentID)
         {
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
             // Value from the ICTextBox
             string newInvitationCode = ICTextBox.Text;
 
@@ -285,7 +285,7 @@ namespace CloakInventorySystem
 
         void updateRfidID(String currentStudentID)
         {
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
             // Value from the ICTextBox
             string newrfidId = rfidTextBox.Text;
 
@@ -339,7 +339,7 @@ namespace CloakInventorySystem
         private void updateCurrentStatus(String currentStudentID)
         {
             // Assuming currentStudentID is a valid variable that holds the current student's ID
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
 
             // Ensure currentStudentID is defined and valid
             if (string.IsNullOrEmpty(currentStudentID))
@@ -395,7 +395,7 @@ namespace CloakInventorySystem
 
         void updateGraduationSpeech(String currentStudentID)
         {
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
 
             if (string.IsNullOrEmpty(currentStudentID))
             {
@@ -447,7 +447,7 @@ namespace CloakInventorySystem
         int getCurrentIndex(String currentStudentID)
         {
             // Connection string to your SQL Server database
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
 
             // SQL query to retrieve the currentStatusID for the student
             string query = "SELECT currentStatusID FROM student WHERE studentID = @StudentID";
@@ -500,7 +500,7 @@ namespace CloakInventorySystem
 
             
 
-            string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = "";
             string query = "DELETE FROM student"; // This will delete all rows
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -543,7 +543,7 @@ namespace CloakInventorySystem
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
-                string connectionString = "Server=tcp:rfidcis.database.windows.net,1433;Initial Catalog=rfidcis;Persist Security Info=False;User ID=CloudSA5def8d30;Password=Tg7$wr!9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                string connectionString = "";
 
                 try
                 {
